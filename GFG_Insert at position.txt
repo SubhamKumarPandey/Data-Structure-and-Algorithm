@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Solution{
+  public:
+    void insertAtIndex(int arr[], int sizeOfArray, int index, int element)
+    {
+        int n=sizeOfArray;
+        int i;
+        for( i=n-1;i>index;i--){
+            arr[i]=arr[i-1];
+        }
+        arr[i]=element;
+    }
+};
+
+int main() {
+    int t;
+    cin>>t;//Input testcases
+    while(t--)
+    {
+        
+        int sizeOfArray; 
+        cin>>sizeOfArray;
+        
+        int arr[sizeOfArray];
+        for(int i = 0; i < sizeOfArray-1; i++)
+        cin>>arr[i];
+        
+        int index;
+        cin>>index;
+        int element;
+        cin>>element;
+        Solution obj;
+        obj.insertAtIndex(arr, sizeOfArray, index, element); //Complete this function
+        
+        for(int i = 0; i < sizeOfArray; i++)//Printing the array for verification
+        cout<<arr[i]<<" ";
+        
+        cout<<endl;
+        
+    }
+    
+	return 0;
+} 
+
+/*
+sizeOfArray = 6
+arr[] = {1, 2, 3, 4, 5}
+index = 5, element = 90
+Output: 1 2 3 4 5 90
+Explanation: 90 is inserted at index
+5(0-based indexing). After inserting,
+array elements are like
+1, 2, 3, 4, 5, 90
+*/
