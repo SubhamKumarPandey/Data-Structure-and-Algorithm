@@ -1,0 +1,60 @@
+/*
+Input: 
+aaaaaabaabccccccc
+
+Output: 
+ababc
+
+Explanation: 
+Removing all consecutive duplicates, 
+we have no duplicates consecutively.
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+ // } Driver Code Ends
+
+
+class Solution
+{
+    public:
+    string removeConsecutiveDuplicates(string s)
+    {
+         string answer="";
+        stack<char>st;
+        st.push(s[0]);
+        for(int i=1;i<s.length();i++)
+        {
+            if(s[i]==st.top())
+                continue;
+            else
+            {
+                answer+=st.top();
+                st.pop();
+                st.push(s[i]);
+            }
+        }
+        answer+=st.top();
+        return answer;
+         
+    }
+};
+
+// { Driver Code Starts.
+
+int main() {
+    int t;
+    cin>>t;
+    
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        Solution obj;
+        cout<<obj.removeConsecutiveDuplicates(s)<<endl;
+    }
+    
+	return 0;
+}

@@ -1,0 +1,66 @@
+/*
+Input:
+aaabbaaccd
+
+Output: 
+ad
+
+Explanation: 
+Remove (aa)abbaaccd =>abbaaccd
+Remove a(bb)aaccd => aaaccd
+Remove (aa)accd => accd
+Remove a(cc)d => ad
+*/
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+    public:
+
+    string removePair(string s)
+    {
+            stack<char>st;
+        st.push(s[0]);
+        for(int i=1;i<s.length();i++)
+        {
+            if(!st.empty()&&s[i]==st.top())
+            {
+                st.pop();
+                continue;
+            }
+            else
+            {
+                st.push(s[i]);
+            }
+        }
+        string ans="";
+        while(!st.empty())
+        {
+            ans=st.top()+ans;
+            st.pop();
+        }
+        return ans;
+    }
+};
+
+int main() {
+    int t;
+    cin>>t;
+    
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        Solution obj;
+        string ans = obj.removePair (s);
+        if(ans=="")
+            cout<<"Empty String"<<endl;
+        else
+            cout<<ans<<endl;
+    }
+    
+	return 0;
+}
