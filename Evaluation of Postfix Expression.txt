@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+    public:
+    //Function to evaluate a postfix expression.
+    int evaluatePostfix(string s)
+    {
+        stack <int> st;
+	
+	for(int i=0;i<s.length();i++)
+	{
+	    if(s[i]=='0'||s[i]=='1'||s[i]=='2'||s[i]=='3'||s[i]=='4'||s[i]=='5'||s[i]=='6'||s[i]=='7'||s[i]=='8'||s[i]=='9')
+		{
+		    st.push((s[i]-'0'));	
+		}	
+		else
+		{
+			int val1 = st.top();
+			st.pop();
+			int val2 = st.top();
+			st.pop();
+			
+			switch(s[i])
+			{
+				case '+':
+					st.push((val2+val1));
+				    break;
+				    
+				case '-':
+					st.push((val2-val1));
+					break;
+					
+				case '*':
+					st.push((val2*val1));
+					break;
+					
+				case '/':
+					st.push((val2/val1));
+					break;
+			}
+		}
+	}
+	return st.top();
+    }
+};
+int main()
+{
+    int t;
+    cin>>t;
+    cin.ignore(INT_MAX, '\n');
+    while(t--)
+    {
+        string S;
+        cin>>S;
+        Solution obj;
+    
+    cout<<obj.evaluatePostfix(S)<<endl;
+    }
+    return 0;
+}
+
+/*
+
+Input: S = "231*+9-"
+Output: -4
+Explanation:
+After solving the given expression, 
+we have -4 as result.
+
+*/
