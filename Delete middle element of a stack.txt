@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Solution
+{
+    public:
+    //Function to delete middle element of a stack.
+      void solve(stack<int>& s, int pos, int i)
+    {
+        if(pos == i)
+        {
+            s.pop();
+            return;
+        }
+        int top = s.top();
+        s.pop();
+        solve(s, pos, i+1);
+        s.push(top);
+    }
+    void deleteMid(stack<int>&s, int sizeOfStack)
+    {
+        int pos = sizeOfStack - ceil(sizeOfStack/2.0) + 1;
+        solve(s, pos, 1);
+    }
+};
+int main() {
+    int t;
+    cin>>t;
+    
+    while(t--)
+    {
+        int sizeOfStack;
+        cin>>sizeOfStack;
+        
+        stack<int> myStack;
+        
+        for(int i=0;i<sizeOfStack;i++)
+        {
+            int x;
+            cin>>x;
+            myStack.push(x);    
+        }
+
+            Solution ob;
+            ob.deleteMid(myStack,myStack.size());
+            while(!myStack.empty())
+            {
+                cout<<myStack.top()<<" ";
+                myStack.pop();
+            }
+        cout<<endl;
+    }   
+    return 0;
+}
+
+/*
+
+Input: 
+Stack = {1, 2, 3, 4, 5}
+Output:
+ModifiedStack = {1, 2, 4, 5}
+Explanation:
+As the number of elements is 5 , 
+hence the middle element will be the 3rd
+element which is deleted
+
+*/
