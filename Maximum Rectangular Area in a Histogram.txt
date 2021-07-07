@@ -1,0 +1,82 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+ // } Driver Code Ends
+
+
+class Solution
+{
+    public:
+    //Function to find largest rectangular area possible in a given histogram.
+    long long getMaxArea(long long a[], int n)
+    {
+         long long maxi = 0;
+       long long area = 0;
+       long long tp = 0;
+       
+       stack <long long> st;
+       
+       int i = 0;
+       while(i<n)
+       {
+           if(st.empty()||a[st.top()]<=a[i])
+           {
+               st.push(i);
+               i++;
+           }
+           else
+           {
+               tp = st.top();
+               st.pop();
+               
+               area = a[tp]*(st.empty() ? i : i-st.top()-1);
+               
+               if(area>maxi)maxi = area;
+           }
+       }
+       
+       while(st.empty()==false)
+       {
+           tp = st.top();
+           st.pop();
+           
+           area = a[tp]*(st.empty() ? i : i-st.top()-1);
+           
+           if(area>maxi)maxi = area;
+       }
+       return maxi;
+    }
+};
+
+
+// { Driver Code Starts.
+
+int main()
+ {
+    long long t;
+
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        
+        long long arr[n];
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+        Solution ob;
+        cout<<ob.getMaxArea(arr, n)<<endl;
+    
+    }
+	return 0;
+}
+
+/*
+
+Input:
+N = 7
+arr[] = {6,2,5,4,5,1,6}
+Output: 12
+
+*/
