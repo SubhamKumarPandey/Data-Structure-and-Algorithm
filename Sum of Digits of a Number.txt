@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+
+
+ // } Driver Code Ends
+//User function Template for C++
+
+class Solution{
+  public:
+    // Complete this function
+    int sumOfDigits(int n)
+    {
+       if(n==0){
+           return 0;
+       }
+       return (sumOfDigits(n/10)+n%10);
+    }
+};
+
+// { Driver Code Starts.
+
+
+int main() {
+	int T;
+	
+	//taking testcases
+	cin>>T;
+	while(T--)
+	{
+	    int n;
+	    
+	    //taking input n
+	    cin>>n;
+	    
+	    //calling method sumOfDigits()
+	    Solution obj;
+	    cout<<obj.sumOfDigits(n)<<endl;
+	    
+	    
+	}
+	return 0;
+}
