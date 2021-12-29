@@ -21,7 +21,7 @@ class Solution{
                     Y=arr[i];
                     count1++;
                 }
-            
+
         }
         if(count>count1){
             return X;
@@ -37,7 +37,7 @@ class Solution{
                 return X;
             }
         }
-        
+
     }
 };
 

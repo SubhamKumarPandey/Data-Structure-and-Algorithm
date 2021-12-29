@@ -4,7 +4,7 @@ using namespace std;
 
 
  // } Driver Code Ends
-     
+
 
 class Solution{
   public:
@@ -17,7 +17,7 @@ class Solution{
       for(;i>0;i--){
           if(arr[i-1]!=arr[i]){
           v.push_back(arr[i-1]);
-              
+
           }
           else if(arr[i-1]==arr[i]){
               continue;
@@ -30,8 +30,8 @@ class Solution{
           v.push_back(x);
       }
       return v;
-       
-         
+
+
     }
 };
 
@@ -39,18 +39,18 @@ class Solution{
 
 // Driver Code
 int main() {
-	
+
 	// Testcase input
 	int testcases;
 	cin >> testcases;
-    
+
     // Looping through all testcases
 	while(testcases--){
 	    int sizeOfArray;
 	    cin >> sizeOfArray;
-	    
+
 	    int arr[sizeOfArray];
-	    
+
 	    // Array input
 	    for(int index = 0; index < sizeOfArray; index++){
 	        cin >> arr[index];
@@ -59,6 +59,6 @@ int main() {
 	    vector<int> ans = obj.largestAndSecondLargest(sizeOfArray, arr);
 	    cout<<ans[0]<<' '<<ans[1]<<endl;
 	}
-	
+
 	return 0;
 }

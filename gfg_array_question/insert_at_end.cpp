@@ -8,10 +8,10 @@ void insertAtEnd(int arr[],int sizeOfArray,int element);
 //User function Template for C++
 
 
-// You only need to insert the given element at 
-// the end, i.e., at index sizeOfArray - 1. You may 
+// You only need to insert the given element at
+// the end, i.e., at index sizeOfArray - 1. You may
 // assume that the array already has sizeOfArray - 1
-// elements. 
+// elements.
 void insertAtEnd(int arr[],int sizeOfArray,int element)
 {
      arr[sizeOfArray-1]=element;
@@ -23,36 +23,36 @@ void insertAtEnd(int arr[],int sizeOfArray,int element)
 
 int main() {
     int t;
-    
+
     //taking testcases
     cin>>t;
     while(t--)
     {
         int sizeOfArray;
-        
+
         //input size of Array
         cin>>sizeOfArray;
-        
+
         int arr[sizeOfArray];
-        
+
         //inserting elements in the array
         for(int i=0;i<sizeOfArray-1;i++)
         cin>>arr[i];
-        
+
         //input element to be inserted
         int element;
         cin>>element;
-        
+
         //calling insertAtEnd() function
         insertAtEnd(arr,sizeOfArray,element);
-        
+
         //printing the elements of the array
         for(int i=0;i<sizeOfArray;i++)
         cout<<arr[i]<<" ";
-        
+
         cout<<endl;
-        
+
     }
-    
+
 	return 0;
 }

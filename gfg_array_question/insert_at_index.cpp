@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution{
   public:
-    // You need to insert the given element at the given index. 
+    // You need to insert the given element at the given index.
     // After inserting the elements at index, elements
     // from index onward should be shifted one position ahead
     // You may assume that the array already has sizeOfArray - 1
@@ -30,18 +30,18 @@ int main() {
     cin>>t;//Input testcases
     while(t--)
     {
-        
-        int sizeOfArray; 
-        
+
+        int sizeOfArray;
+
         //input size of Array
         cin>>sizeOfArray;
-        
+
         int arr[sizeOfArray];
-        
+
         //input elements in the Array
         for(int i = 0; i < sizeOfArray-1; i++)
         cin>>arr[i];
-        
+
         int index;
         //input index
         cin>>index;
@@ -51,13 +51,13 @@ int main() {
         Solution obj;
         //calling insertAtIndex() function
         obj.insertAtIndex(arr, sizeOfArray, index, element); //Complete this function
-        
+
         for(int i = 0; i < sizeOfArray; i++)//Printing the array for verification
         cout<<arr[i]<<" ";
-        
+
         cout<<endl;
-        
+
     }
-    
+
 	return 0;
 }
