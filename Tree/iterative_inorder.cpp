@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-//iterative preorder
+//iterative inorder
 struct Node  
 { 
   int key; 
@@ -12,7 +12,7 @@ struct Node
   }
 };
 
-vector<int> Preorder(Node *root){
+vector<int> Inorder(Node *root){
 	vector<int> ans;
 	stack<Node*> st;
 	Node *test=root;
