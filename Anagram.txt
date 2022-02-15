@@ -7,6 +7,7 @@ using namespace std;
 
 class Solution
 {
+
     public:
     //Function is to check whether two strings are anagram of each other or not.
     const int CHAR=256;
